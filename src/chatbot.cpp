@@ -46,43 +46,48 @@ ChatBot::~ChatBot()
 ////
 
 // copy constructor 
-ChatBot::ChatBot(const ChatBot &oldObject){
-    _image = oldObject._image; 
+ChatBot::ChatBot(const ChatBot & oldObject){
+    _image = new wbBitmap(*oldObject._image); 
     _chatLogic = oldObject._chatLogic; 
     _rootNode = oldObject._rootNode; 
+    _currentNode = oldObject._currentNode;
 }
 
 // copy assignment 
-ChatBot &ChatBot::operator=(const ChatBot &oldObject){
+ChatBot &ChatBot::operator=(const ChatBot & oldObject){
     if(this == &oldObject){return *this;}
     delete _image; 
     // _image = oldObject._image;
     _image = new wxBitmap(*oldObject._image);
     _chatLogic = oldObject._chatLogic; 
     _rootNode = oldObject._rootNode; 
+    _currentNode = oldObject._currentNode;
     return *this; 
 }
 
 // move constructor 
-ChatBot::ChatBot(ChatBot &&oldObject){
+ChatBot::ChatBot(ChatBot && oldObject){
     _image = oldObject._image; 
     _chatLogic = oldObject._chatLogic; 
     _rootNode = oldObject._rootNode; 
-    oldObject._image = nullptr;
-    oldObject._chatLogic = nullptr;
-    oldObject._rootNode = nullptr;
+    _currentNode = oldObject._currentNode;
+    // oldObject._image = nullptr;
+    // oldObject._chatLogic = nullptr;
+    // oldObject._rootNode = nullptr;
 }
 
 // move assignment 
-ChatBot &ChatBot::operator=(ChatBot &&oldObject){
+ChatBot &ChatBot::operator=(ChatBot && oldObject){
     if(this == &oldObject){return *this;}
     delete _image; 
     _image = oldObject._image;
     _chatLogic = oldObject._chatLogic; 
     _rootNode = oldObject._rootNode; 
+    _currentNode = oldObject._currentNode;
     oldObject._image = nullptr;
     oldObject._chatLogic = nullptr;
     oldObject._rootNode = nullptr;
+    oldObject._currentNode = nullptr;
     return *this; 
 }
     
