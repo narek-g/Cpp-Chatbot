@@ -12,7 +12,7 @@
 ChatBot::ChatBot()
 {
     // invalidate data handles
-    _image = nullptr;
+    _image = NULL;
     _chatLogic = nullptr;
     _rootNode = nullptr;
     _currentNode = nullptr;
@@ -46,56 +46,51 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
-
-// copy constructor 
-ChatBot::ChatBot(const ChatBot & oldObject){
-    delete _image; 
-    _image = *oldObject._image; 
-    // _image = new wbBitmap(*oldObject._image); 
-    _chatLogic = oldObject._chatLogic; 
-    _rootNode = oldObject._rootNode; 
-    _currentNode = oldObject._currentNode;
+ChatBot::ChatBot(const ChatBot & source){
+  std::cout<<"ChatBot Copy Constructor\n";
+  _image = new wxBitmap(*source._image);
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
 }
 
-// copy assignment 
-ChatBot &ChatBot::operator=(const ChatBot & oldObject){
-    if(this == &oldObject){return *this;}
-    delete _image; 
-    _image = oldObject._image;
-    // _image = new wxBitmap(*oldObject._image);
-    _chatLogic = oldObject._chatLogic; 
-    _rootNode = oldObject._rootNode; 
-    _currentNode = oldObject._currentNode;
-    return *this; 
+ChatBot &ChatBot::operator=(const ChatBot & source){
+  std::cout<<"ChatBot Assignment operator\n";
+  if (&source == this)
+  {
+    return *this;
+  }
+  _image = new wxBitmap(*source._image);
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
+  return *this;
 }
 
-// move constructor 
-ChatBot::ChatBot(ChatBot && oldObject){
-    _image = oldObject._image; 
-    _chatLogic = oldObject._chatLogic; 
-    _rootNode = oldObject._rootNode; 
-    _currentNode = oldObject._currentNode;
-    // oldObject._image = nullptr;
-    // oldObject._chatLogic = nullptr;
-    // oldObject._rootNode = nullptr;
+ChatBot::ChatBot(ChatBot && source){
+  std::cout<<"ChatBot Move Constructor\n";
+   _image = source._image;
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
 }
 
-// move assignment 
-ChatBot &ChatBot::operator=(ChatBot && oldObject){
-    if(this == &oldObject){return *this;}
-    // delete _image; 
-    _image = oldObject._image;
-    _chatLogic = oldObject._chatLogic; 
-    _rootNode = oldObject._rootNode; 
-    _currentNode = oldObject._currentNode;
-    oldObject._image = nullptr;
-    oldObject._chatLogic = nullptr;
-    oldObject._rootNode = nullptr;
-    oldObject._currentNode = nullptr;
-    return *this; 
+ChatBot &ChatBot::operator=(ChatBot && source){
+  std::cout<<"ChatBot Move Assignment Operator\n";
+  if (&source == this)
+  {
+    return *this;
+  }
+  _image = source._image;
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
+  source._image = NULL;
+  source._chatLogic = nullptr;
+  source._rootNode = nullptr;
+  source._currentNode = nullptr;
+  return *this;
 }
-    
-
 ////
 //// EOF STUDENT CODE
 
