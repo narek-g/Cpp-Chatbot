@@ -49,6 +49,7 @@ ChatBot::~ChatBot()
 
 // copy constructor 
 ChatBot::ChatBot(const ChatBot & oldObject){
+    delete _image; 
     _image = *oldObject._image; 
     // _image = new wbBitmap(*oldObject._image); 
     _chatLogic = oldObject._chatLogic; 
@@ -59,7 +60,7 @@ ChatBot::ChatBot(const ChatBot & oldObject){
 // copy assignment 
 ChatBot &ChatBot::operator=(const ChatBot & oldObject){
     if(this == &oldObject){return *this;}
-    // delete _image; 
+    delete _image; 
     _image = oldObject._image;
     // _image = new wxBitmap(*oldObject._image);
     _chatLogic = oldObject._chatLogic; 
