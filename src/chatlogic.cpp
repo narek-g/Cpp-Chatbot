@@ -23,7 +23,7 @@ ChatLogic::ChatLogic()
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
     // _chatBot->SetChatLogicHandle(this);
 
-    std::cout << "ChatLogic constuctor \n"; 
+    std::cout << "ChatLogic constuctor \n";  
 
     ////
     //// EOF STUDENT CODE
@@ -221,8 +221,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     }
 
     // add chatbot to graph root node
-    _chatBot->SetRootNode(rootNode);
-    rootNode->MoveChatbotHere(_chatBot);
+    // _chatBot->SetRootNode(rootNode);
+    // rootNode->MoveChatbotHere(_chatBot);
 
     ChatBot chatbot("../images/chatbot.png");
     SetChatbotHandle(&chatBot);
