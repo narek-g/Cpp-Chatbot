@@ -12,7 +12,7 @@
 ChatBot::ChatBot()
 {
     // invalidate data handles
-    _image = NULL;
+    _image = nullptr;
     _chatLogic = nullptr;
     _rootNode = nullptr;
     _currentNode = nullptr;
@@ -46,7 +46,8 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
-ChatBot::ChatBot(const ChatBot & source){
+
+ ChatBot::ChatBot(const ChatBot & source){
   std::cout<<"ChatBot Copy Constructor\n";
   _image = new wxBitmap(*source._image);
   _chatLogic = source._chatLogic;
@@ -91,6 +92,7 @@ ChatBot &ChatBot::operator=(ChatBot && source){
   source._currentNode = nullptr;
   return *this;
 }
+
 ////
 //// EOF STUDENT CODE
 
