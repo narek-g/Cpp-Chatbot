@@ -47,9 +47,18 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
-// Copy Constructor 
+// Copy Constructor
  ChatBot::ChatBot(const ChatBot & source){
   _image = new wxBitmap(*source._image);
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
+}
+
+
+// Move Constructor 
+ChatBot::ChatBot(ChatBot && source){
+   _image = source._image;
   _chatLogic = source._chatLogic;
   _rootNode = source._rootNode;
   _currentNode = source._currentNode;
@@ -63,14 +72,6 @@ ChatBot &ChatBot::operator=(const ChatBot & source){
   _rootNode = source._rootNode;
   _currentNode = source._currentNode;
   return *this;
-}
-
-// Move Constructor 
-ChatBot::ChatBot(ChatBot && source){
-   _image = source._image;
-  _chatLogic = source._chatLogic;
-  _rootNode = source._rootNode;
-  _currentNode = source._currentNode;
 }
 
 // Move Assignment
