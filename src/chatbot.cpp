@@ -15,6 +15,7 @@ ChatBot::ChatBot()
     _image = nullptr;
     _chatLogic = nullptr;
     _rootNode = nullptr;
+    _currentNode = nullptr;
 }
 
 // constructor WITH memory allocation
@@ -25,6 +26,7 @@ ChatBot::ChatBot(std::string filename)
     // invalidate data handles
     _chatLogic = nullptr;
     _rootNode = nullptr;
+    _currentNode = nullptr;
 
     // load image into heap memory
     _image = new wxBitmap(filename, wxBITMAP_TYPE_PNG);
@@ -56,7 +58,7 @@ ChatBot::ChatBot(const ChatBot & oldObject){
 // copy assignment 
 ChatBot &ChatBot::operator=(const ChatBot & oldObject){
     if(this == &oldObject){return *this;}
-    delete _image; 
+    // delete _image; 
     // _image = oldObject._image;
     _image = new wxBitmap(*oldObject._image);
     _chatLogic = oldObject._chatLogic; 
@@ -79,7 +81,7 @@ ChatBot::ChatBot(ChatBot && oldObject){
 // move assignment 
 ChatBot &ChatBot::operator=(ChatBot && oldObject){
     if(this == &oldObject){return *this;}
-    delete _image; 
+    // delete _image; 
     _image = oldObject._image;
     _chatLogic = oldObject._chatLogic; 
     _rootNode = oldObject._rootNode; 
