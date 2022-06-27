@@ -68,10 +68,10 @@ ChatBot::ChatBot(ChatBot && source){
     _currentNode = source._currentNode;
     _chatLogic->SetChatbotHandle(this);
     
-    other._image = NULL;
-    other._rootNode = nullptr;
-    other._chatLogic = nullptr;
-    other._currentNode = nullptr;
+    source._image = NULL;
+    source._chatLogic = nullptr;
+    source._rootNode = nullptr;
+    source._currentNode = nullptr;
 }
 
 // Copy Assignment 
