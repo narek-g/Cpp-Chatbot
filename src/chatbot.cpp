@@ -96,7 +96,7 @@ ChatBot &ChatBot::operator=(ChatBot && oldObject){
     _chatLogic = oldObject._chatLogic;
     _rootNode = oldObject._rootNode;
     _currentNode = oldObject._currentNode;
-    _chatLogic->SetChatbotHandle(this);d
+    _chatLogic->SetChatbotHandle(this);
 
     oldObject._image = NULL;
     oldObject._chatLogic = nullptr;
