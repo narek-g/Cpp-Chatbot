@@ -80,6 +80,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 {
     // load file with answer graph elements
     std::ifstream file(filename);
+    ChatBot chatBot("../images/chatbot.png");
+    chatBot.SetChatLogicHandle(this);
 
     // check for file availability and process it line by line
     if (file)
@@ -213,8 +215,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
     //// STUDENT CODE
     ////
-    ChatBot chatBot("../images/chatbot.png");
-    chatBot.SetChatLogicHandle(this);
+    
 
     // identify root node
     GraphNode *rootNode = nullptr;
