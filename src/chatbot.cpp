@@ -49,7 +49,7 @@ ChatBot::~ChatBot()
 ////
 
 // Copy Constructor
- ChatBot::ChatBot(const ChatBot & oldObject){
+ ChatBot::ChatBot(ChatBot & oldObject){
      std::cout<<"ChatBot Copy Constructor"<< std::endl;
     _image = new wxBitmap(*oldObject._image);
     _chatLogic = oldObject._chatLogic;
@@ -60,7 +60,7 @@ ChatBot::~ChatBot()
 
 
 // Copy Assignment 
-ChatBot &ChatBot::operator=(const ChatBot & oldObject){
+ChatBot &ChatBot::operator=(ChatBot & oldObject){
     std::cout<<"ChatBot Copy Assignment Operator" << std::endl;
     if (&oldObject == this){ return *this;}
     _image = new wxBitmap(*oldObject._image);
