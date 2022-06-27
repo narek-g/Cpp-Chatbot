@@ -12,10 +12,10 @@
 ChatBot::ChatBot()
 {
     // invalidate data handles
-    _image = nullptr;
+    _image = NULL;
     _chatLogic = nullptr;
     _rootNode = nullptr;
-    _currentNode = nullptr;
+    // _currentNode = nullptr;
 }
 
 // constructor WITH memory allocation
