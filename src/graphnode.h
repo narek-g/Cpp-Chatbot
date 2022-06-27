@@ -49,9 +49,7 @@ public:
 
     //// STUDENT CODE
     ////
-
     void MoveChatbotHere(ChatBot chatbot);
-
     ////
     //// EOF STUDENT CODE
 
