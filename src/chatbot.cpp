@@ -2,6 +2,7 @@
 #include <random>
 #include <algorithm>
 #include <ctime>
+#include <iostream>
 
 #include "chatlogic.h"
 #include "graphnode.h"
@@ -66,6 +67,7 @@ ChatBot::ChatBot(ChatBot && source){
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
     _chatLogic->SetChatbotHandle(this);
+    
     other._image = NULL;
     other._rootNode = nullptr;
     other._chatLogic = nullptr;
@@ -92,7 +94,8 @@ ChatBot &ChatBot::operator=(ChatBot && source){
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
-    source._image = nullptr;
+
+    source._image = NULL;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
     source._currentNode = nullptr;
