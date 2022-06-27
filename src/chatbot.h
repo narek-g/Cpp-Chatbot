@@ -29,8 +29,8 @@ public:
 
     //// STUDENT CODE
     ////
-    ChatBot( ChatBot & oldObject);              // copy constructor
-    ChatBot &operator=( ChatBot & oldObject);   // copy assignment, operator overload
+    ChatBot(ChatBot & oldObject);              // copy constructor
+    ChatBot &operator=(ChatBot & oldObject);   // copy assignment, operator overload
     ChatBot(ChatBot && oldObject);                   // move constructor
     ChatBot &operator=(ChatBot && oldObject);        // move assignment, operator overload
     ////
