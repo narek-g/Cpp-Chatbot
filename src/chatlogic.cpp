@@ -117,13 +117,15 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
             }
 
             // process tokens for current line
-            auto type = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { 
+            auto type = std::find_if(tokens.begin(), tokens.end(), 
+            [](const std::pair<std::string, std::string> &pair) { 
                 return pair.first == "TYPE"; 
                 });
             if (type != tokens.end())
             {
                 // check for id
-                auto idToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { 
+                auto idToken = std::find_if(tokens.begin(), tokens.end(), 
+                [](const std::pair<std::string, std::string> &pair) { 
                     return pair.first == "ID"; 
                     });
                 if (idToken != tokens.end())
@@ -139,7 +141,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
                         // check if node with this ID exists already
                         // auto newNode = std::find_if(_nodes.begin(), _nodes.end(), [&id](GraphNode *node) { return node->GetID() == id; });
-                        auto newNode = std::find_if(_nodes.begin(), _nodes.end(), [&id](std::unique_ptr<GraphNode>&node) { 
+                        auto newNode = std::find_if(_nodes.begin(), _nodes.end(), 
+                        [&id](std::unique_ptr<GraphNode>&node) { 
                             return node->GetID() == id; 
                             });
 
