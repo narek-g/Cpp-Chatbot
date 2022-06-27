@@ -165,17 +165,21 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                         ////
 
                         // find tokens for incoming (parent) and outgoing (child) node
-                        auto parentToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { 
+                        auto parentToken = std::find_if(tokens.begin(), tokens.end(), 
+                        [](const std::pair<std::string, std::string> &pair) { 
                             return pair.first == "PARENT"; });
-                        auto childToken = std::find_if(tokens.begin(), tokens.end(), [](const std::pair<std::string, std::string> &pair) { 
+                        auto childToken = std::find_if(tokens.begin(), tokens.end(), 
+                        [](const std::pair<std::string, std::string> &pair) { 
                             return pair.first == "CHILD"; });
 
                         if (parentToken != tokens.end() && childToken != tokens.end())
                         {
                             // get iterator on incoming and outgoing node via ID search
-                            auto parentNode = std::find_if(_nodes.begin(), _nodes.end(), [&parentToken](std::unique_ptr<GraphNode>&node) { 
+                            auto parentNode = std::find_if(_nodes.begin(), _nodes.end(), 
+                            [&parentToken](std::unique_ptr<GraphNode>&node) { 
                                 return node->GetID() == std::stoi(parentToken->second); });
-                            auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](std::unique_ptr<GraphNode>&node) { 
+                            auto childNode = std::find_if(_nodes.begin(), _nodes.end(), 
+                            [&childToken](std::unique_ptr<GraphNode>&node) { 
                                 return node->GetID() == std::stoi(childToken->second); });
 
                             // create new edge
